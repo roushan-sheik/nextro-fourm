@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+p span {
+  font-family: "Inter", sans-serif;
+  color: #12132d99;
+}
+/* main container  */
+.main_container {
+  width: 90%;
+  max-width: 180rem;
+  margin: 0 auto;
+}
+@media screen and (max-width: 576px) {
+  .main_container {
+    width: 100%;
+  }
+}
+h1 h2 h3 h4 {
+  color: rgb(18, 19, 45);
+  font-family: "Mulish", sans-serif;
+}
+.bg_primary {
+  background: #797dfc;
+}
