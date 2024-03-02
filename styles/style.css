@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
-
+body {
+  font-family: "Mulish", sans-serif;
+}
 p span {
   font-family: "Inter", sans-serif;
   color: #12132d99;
@@ -19,6 +21,38 @@ h1 h2 h3 h4 {
   color: rgb(18, 19, 45);
   font-family: "Mulish", sans-serif;
 }
+.black_primary {
+  color: rgb(18, 19, 45);
+}
+.black_secondary {
+  color: rgba(18, 19, 45, 0.6);
+}
 .bg_primary {
   background: #797dfc;
+}
+.circle_btn {
+  box-sizing: border-box;
+  border: 1px solid rgba(3, 7, 18, 0.1);
+  border-radius: 50px;
+  background: rgba(18, 19, 45, 0.03);
+}
+@media screen and (max-width: 576px) {
+  .circle_btn {
+    box-sizing: border-box;
+    border: 1px solid rgba(204, 215, 245, 0.1);
+    border-radius: 50px;
+    background: rgba(214, 215, 255, 0.03);
+  }
+  .circle_btn_hover:hover {
+    border: 1px solid rgba(228, 228, 228, 0.1);
+    background: rgba(255, 255, 255, 0.53);
+    border-radius: 0px;
+  }
+}
+.hover:hover {
+  background: #797dfc;
+}
+.circle_btn_hover:hover {
+  border: 1px solid rgba(3, 7, 18, 0.1);
+  background: rgba(18, 19, 45, 0.1);
 }
