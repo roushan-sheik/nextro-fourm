@@ -5,11 +5,12 @@ body {
 p span {
   font-family: "Inter", sans-serif;
   color: #12132d99;
+  font-size: 18px;
 }
 /* main container  */
 .main_container {
   width: 90%;
-  max-width: 180rem;
+  max-width: 2440px;
   margin: 0 auto;
 }
 @media screen and (max-width: 576px) {
@@ -28,7 +29,9 @@ h1 h2 h3 h4 {
   color: rgba(18, 19, 45, 0.6);
 }
 .bg_primary {
-  background: #797dfc;
+  /* background: #797dfc; */
+  /* background: #00a8ff; */
+  background: #1e90ff;
 }
 .circle_btn {
   box-sizing: border-box;
@@ -50,9 +53,23 @@ h1 h2 h3 h4 {
   }
 }
 .hover:hover {
-  background: #797dfc;
+  background: #1e90ff;
 }
 .circle_btn_hover:hover {
   border: 1px solid rgba(3, 7, 18, 0.1);
   background: rgba(18, 19, 45, 0.1);
+}
+.banner_container {
+  margin-top: 40px;
+  background: rgb(18, 19, 45);
+}
+.gradient_text {
+  background: black;
+  background: linear-gradient(to right, #3796f5 0%, #1e90ff 50%, #083b6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.random {
+  color: #ffffffcc;
+  color: #12132dcc;
 }
