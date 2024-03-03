@@ -108,3 +108,56 @@ function displayAddPost(title, view) {
   mark_count.innerText = markCount + 1;
 }
 getAllPosts();
+//NOTE - Display resent post
+const getAllResentPosts = async () => {
+  const res = await fetch(
+    `https://openapi.programming-hero.com/api/retro-forum/latest-posts`
+  );
+  const data = await res.json();
+  displayLatestPost(data);
+};
+function displayLatestPost(latestPosts) {
+  latestPosts.forEach((post) => {
+    const latest_post_container = document.getElementById(
+      "latest_post_container"
+    );
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <!-- card start -->
+        <div class="latest_card rounded-[1.5rem] p-[22px]">
+          <!-- img box  -->
+          <div class="rounded-[20px]">
+            <img class="object-cover rounded-[20px] w-full h-full" src="./assets/images/post.jpg" alt="">
+          </div>
+          <!-- content box  -->
+          <div>
+            <div class="flex gap-2 items-center mt-[1.375rem] mb-[.875rem]">
+              <img src="./assets/icons/date.png" alt="">
+              <span class="text-base black_primary">29 January 2024</span>
+            </div>
+            <h3 class="text-[1.125rem] font-extrabold mb-3">What will a mars habitat force that impact in our daily
+              life!!!
+            </h3>
+            <p class="b-[.875rem] text-base black_secondary">Yes, you can run unit tests and view the results
+              directly within the
+              app.</p>
+            <!-- Profile  -->
+            <div class="flex mt-[1rem] gap-4">
+              <!-- profile img  -->
+              <div class="rounded-full w-[42px] h-[42px]">
+                <img class="rounded-full w-full h-full object-cover" src="./assets/images/user.jpg" alt="">
+              </div>
+              <!-- profile content  -->
+              <div class="flex flex-col">
+                <h3 class="text-base font-bold">Cameron Williamson</h3>
+                <p>Unknown</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- card end  -->
+    `;
+    latest_post_container.appendChild(div);
+  });
+}
+getAllResentPosts();
