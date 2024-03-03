@@ -1,21 +1,41 @@
+// global search bool
+let isSearch = false;
+// get all posts
 const getAllPosts = async (clickedId) => {
+  const searchPost = [];
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const { posts } = await res.json();
-  // handle add posts
+  const search_input = document.getElementById("search_input");
   posts.forEach((post) => {
+    // handle search
+    if (post.category === search_input.value) {
+      searchPost.push(post);
+    }
     if (post.id === clickedId) {
+      // handle add posts
       displayAddPost(post.title, post.view_count);
     }
   });
-
-  displayPost(posts);
+  if (!isSearch) {
+    displayPost(posts);
+  } else {
+    return searchPost;
+  }
 };
+// Handle search
+const search_btn = document.getElementById("search_btn");
+search_btn.addEventListener("click", async () => {
+  isSearch = true;
+  const sortedPosts = await getAllPosts();
+  displayPost(sortedPosts);
+});
 
 //* NOTE Display posts
 const post_container = document.getElementById("post_container");
 function displayPost(posts) {
+  post_container.innerText = "";
   posts.forEach((post) => {
     const div = document.createElement("div");
     div.innerHTML = `
