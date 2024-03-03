@@ -1,8 +1,9 @@
-// global search bool
+// global search bool condition
 let isSearch = false;
 // get all posts
 const getAllPosts = async (clickedId) => {
   const searchPost = [];
+
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
@@ -24,11 +25,22 @@ const getAllPosts = async (clickedId) => {
     return searchPost;
   }
 };
+//Loading  spinner
+function loadingSpinner(status) {
+  const spinner = document.getElementById("spinner_parent");
+  if (status) {
+    spinner.classList.remove("hidden");
+  } else {
+    spinner.classList.add("hidden");
+  }
+}
 // Handle search
 const search_btn = document.getElementById("search_btn");
 search_btn.addEventListener("click", async () => {
+  loadingSpinner(true);
   isSearch = true;
   const sortedPosts = await getAllPosts();
+
   displayPost(sortedPosts);
 });
 
@@ -101,6 +113,10 @@ function displayPost(posts) {
           </div>
           <!-- <<<<<<<<<<<< post ends >>>>>>>>>>>>> -->
         `;
+    // Loading spinner show
+    setTimeout(() => {
+      loadingSpinner(false);
+    }, 2000);
     post_container.appendChild(div);
   });
 }
