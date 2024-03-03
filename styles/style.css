@@ -69,8 +69,39 @@ h1 h2 h3 h4 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.post {
+  border: 1px solid rgb(121, 125, 252);
+  border-radius: 24px;
+  background: rgba(121, 125, 252, 0.1);
+}
+.active_status {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+  /* success/500 */
+  background: rgb(16, 185, 129);
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+.deactive_status {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100px;
+  background: rgb(255, 52, 52);
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: -6px;
+  right: -6px;
+}
+.border_bottom {
+  border: 1px dashed rgba(18, 19, 45, 0.25);
+}
 .random {
   color: #ffffffcc;
   color: #12132dcc;
   color: #12132d99;
+  color: #12132dcc;
 }
