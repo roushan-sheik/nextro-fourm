@@ -111,6 +111,16 @@ h1 h2 h3 h4 {
   border: 1px solid rgba(18, 19, 45, 0.15);
   background: rgb(255, 255, 255);
 }
+footer {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 19, 45, 0.05),
+    rgba(18, 19, 45, 0) 100%
+  );
+}
+.solid_border {
+  border: 1px solid rgba(48, 50, 94, 0.1);
+}
 .random {
   color: #ffffffcc;
   color: #12132dcc;
