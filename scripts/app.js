@@ -127,30 +127,42 @@ function displayLatestPost(latestPosts) {
         <div class="latest_card rounded-[1.5rem] p-[22px]">
           <!-- img box  -->
           <div class="rounded-[20px]">
-            <img class="object-cover rounded-[20px] w-full h-full" src="./assets/images/post.jpg" alt="">
+            <img class="object-cover rounded-[20px] w-full h-full" src='${
+              post.cover_image
+            }' alt="">
           </div>
           <!-- content box  -->
           <div>
             <div class="flex gap-2 items-center mt-[1.375rem] mb-[.875rem]">
               <img src="./assets/icons/date.png" alt="">
-              <span class="text-base black_primary">29 January 2024</span>
+              <span class="text-base black_primary">${
+                post.author.posted_date
+                  ? post.author.posted_date
+                  : "No Publish Date"
+              }</span>
             </div>
-            <h3 class="text-[1.125rem] font-extrabold mb-3">What will a mars habitat force that impact in our daily
-              life!!!
+            <h3 class="text-[1.125rem] font-extrabold mb-3">
+            ${post.title}
             </h3>
-            <p class="b-[.875rem] text-base black_secondary">Yes, you can run unit tests and view the results
-              directly within the
-              app.</p>
+            <p class="b-[.875rem] text-base black_secondary">
+            ${post.description}
+            </p>
             <!-- Profile  -->
             <div class="flex mt-[1rem] gap-4">
               <!-- profile img  -->
               <div class="rounded-full w-[42px] h-[42px]">
-                <img class="rounded-full w-full h-full object-cover" src="./assets/images/user.jpg" alt="">
+                <img class="rounded-full w-full h-full object-cover" src='${
+                  post.profile_image
+                }' alt="">
               </div>
               <!-- profile content  -->
               <div class="flex flex-col">
-                <h3 class="text-base font-bold">Cameron Williamson</h3>
-                <p>Unknown</p>
+                <h3 class="text-base font-bold">
+                ${post.author.name ? post.author.name : "Unknown"}
+                </h3>
+                <p> ${
+                  post.author.designation ? post.author.designation : "Unknown"
+                }</p>
               </div>
             </div>
           </div>
