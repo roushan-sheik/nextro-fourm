@@ -37,6 +37,7 @@ function loadingSpinner(status) {
 // Handle search
 const search_btn = document.getElementById("search_btn");
 search_btn.addEventListener("click", async () => {
+  // Loading spinner show
   loadingSpinner(true);
   isSearch = true;
   const sortedPosts = await getAllPosts();
@@ -113,7 +114,7 @@ function displayPost(posts) {
           </div>
           <!-- <<<<<<<<<<<< post ends >>>>>>>>>>>>> -->
         `;
-    // Loading spinner show
+    // Loading spinner off after 2 seconds letter
     setTimeout(() => {
       loadingSpinner(false);
     }, 2000);
