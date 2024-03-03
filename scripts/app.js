@@ -18,7 +18,9 @@ function displayPost(posts) {
             <!-- profile  -->
             <div class="prifile">
               <div class="bg-white relative rounded-[16px] w-[4rem] h-[4rem]">
-                <img class="w-full h-full object-cover rounded-[16px]" src="./assets/images/user.jpg" alt="">
+                <img class="w-full h-full object-cover rounded-[16px]" src="${
+                  post.image
+                }" alt="">
                 <!-- active icon  -->
                 <div class="${
                   post.isActive ? "active_status" : "deactive_status"
@@ -29,30 +31,39 @@ function displayPost(posts) {
             <div>
               <!-- about author -->
               <div class="flex gap-4 mb-[10px]">
-                <p class="text-[#12132dcc] text-[14px] font-[500]">#music</p>
+                <p class="text-[#12132dcc] text-[14px] font-[500]">#${
+                  post.category
+                }</p>
                 <p class="text-[#12132dcc] text-[14px] font-[500]">Author:
-                  <span class="text-[#12132dcc] text-[14px] font-[500]">Arifa Moni</span>
+                  <span class="text-[#12132dcc] text-[14px] font-[500]">${
+                    post.author.name
+                  }</span>
                 </p>
               </div>
-              <h3 class="font-bold mb-[15px] text-[18px]">10 Kids Unaware of Their Halloween Costume</h3>
-              <p>It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative
-              </p>
+              <h3 class="font-bold mb-[15px] text-[18px]">${post.title}</h3>
+              <p>${post.description}</p>
               <!-- dotted line  -->
               <div class="border_bottom my-[18px]"></div>
-              <!-- activity container -->
+              <!-- =====> activity container <===== -->
               <div class="activity_container flex  justify-between items-center">
                 <div class="activity_parent flex gap-3 lg:gap-6">
                   <div class="flex gap-2 lg:gap-[10px] justify-center items-center">
                     <img src="./assets/icons/message.png" alt="">
-                    <p class="text-[14px] text-[#12132d99]">560</p>
+                    <p class="text-[14px] text-[#12132d99]">${
+                      post.comment_count
+                    }</p>
                   </div>
                   <div class="flex gap-2 lg:gap-[10px]justify-center items-center">
                     <img src="./assets/icons/eye.png" alt="">
-                    <p class="text-[14px] text-[#12132d99]">2,560</p>
+                    <p class="text-[14px] text-[#12132d99]">${
+                      post.view_count
+                    }</p>
                   </div>
                   <div class="flex gap-2 lg:gap-[10px] justify-center items-center">
                     <img src="./assets/icons/clock.png" alt="">
-                    <p class="text-[14px] text-[#12132d99]">2,560</p>
+                    <p class="text-[14px] text-[#12132d99]">${
+                      post.posted_time
+                    } min</p>
                   </div>
                 </div>
                 <!-- Add button  -->
