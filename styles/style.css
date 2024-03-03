@@ -107,6 +107,10 @@ h1 h2 h3 h4 {
 .border_bottom {
   border: 1px dashed rgba(18, 19, 45, 0.25);
 }
+.latest_card {
+  border: 1px solid rgba(18, 19, 45, 0.15);
+  background: rgb(255, 255, 255);
+}
 .random {
   color: #ffffffcc;
   color: #12132dcc;
