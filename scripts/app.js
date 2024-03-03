@@ -1,8 +1,14 @@
-const getAllPosts = async () => {
+const getAllPosts = async (clickedId) => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const { posts } = await res.json();
+  // handle add posts
+  posts.forEach((post) => {
+    if (post.id === clickedId) {
+      displayAddPost(post.title, post.view_count);
+    }
+  });
 
   displayPost(posts);
 };
@@ -67,17 +73,38 @@ function displayPost(posts) {
                   </div>
                 </div>
                 <!-- Add button  -->
-                <button id="add_btn">
+                <button id="add_btn" onClick="handleAddClick(${post.id})" >
                   <img src="./assets/icons/email.png" alt="">
                 </button>
               </div>
             </div>
           </div>
           <!-- <<<<<<<<<<<< post ends >>>>>>>>>>>>> -->
-        
         `;
     post_container.appendChild(div);
   });
 }
 
+// Handle add post
+async function handleAddClick(id) {
+  getAllPosts(id);
+}
+// display add post
+function displayAddPost(title, view) {
+  const added_post_parent = document.getElementById("added_post_parent");
+  const mark_count = document.getElementById("mark_count");
+  const contentDiv = document.createElement("div");
+  contentDiv.innerHTML = `
+       <div class="flex mb-4 justify-between items-center bg-white rounded-[16px] p-[14px]">
+              <h4 class="basis-[70%] text-base font-[600]">${title}</h4>
+              <div class="basis-[30%] flex items-center gap-1 justify-end">
+                <img src="./assets/icons/eye.png" alt="">
+                <span>${view}</span>
+              </div>
+            </div>
+  `;
+  added_post_parent.appendChild(contentDiv);
+  let markCount = parseInt(mark_count.innerText);
+  mark_count.innerText = markCount + 1;
+}
 getAllPosts();
