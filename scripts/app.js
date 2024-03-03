@@ -16,7 +16,7 @@ function displayPost(posts) {
            <!-- <<<<<<<<<<<< post start >>>>>>>>>>>>> -->
           <div class="post lg:p-9 p-7  rounded-[24px] flex gap-5 flex-col lg:flex-row">
             <!-- profile  -->
-            <div class="prifile">
+            <div class="profile">
               <div class="bg-white relative rounded-[16px] w-[4rem] h-[4rem]">
                 <img class="w-full h-full object-cover rounded-[16px]" src="${
                   post.image
@@ -40,7 +40,7 @@ function displayPost(posts) {
                   }</span>
                 </p>
               </div>
-              <h3 class="font-bold mb-[15px] text-[18px]">${post.title}</h3>
+              <h3 class="font-bold mb-[15px]  text-[18px]">${post.title}</h3>
               <p>${post.description}</p>
               <!-- dotted line  -->
               <div class="border_bottom my-[18px]"></div>
