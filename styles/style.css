@@ -61,7 +61,12 @@ h1 h2 h3 h4 {
 }
 .banner_container {
   margin-top: 40px;
-  background: rgb(18, 19, 45);
+
+  background: url("../assets/images/bgbanner.png"), rgb(18, 19, 45);
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  background-position: center center;
 }
 .gradient_text {
   background: black;
