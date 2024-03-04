@@ -15,8 +15,9 @@ const getAllPosts = async (clickedId) => {
 
   const search_input = document.getElementById("search_input");
   posts.forEach((post) => {
+    let input_value = search_input.value.toLowerCase();
     // handle search
-    if (post.category === search_input.value) {
+    if (post.category.toLowerCase() === input_value) {
       searchPost.push(post);
     }
     if (post.id === clickedId) {
