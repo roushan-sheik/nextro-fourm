@@ -1,12 +1,11 @@
 // global search bool condition
 let isSearch = false;
+const categoryStore = [];
 // get all posts
 const getAllPosts = async (clickedId) => {
   const searchPost = [];
   if (searchPost.length === 0) {
-    setTimeout(() => {
-      loadingSpinner(false);
-    }, 2000);
+    loadingSpinner(false);
   }
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
@@ -32,23 +31,34 @@ const getAllPosts = async (clickedId) => {
   }
 };
 //Loading  spinner
-function loadingSpinner(status) {
+function loadingSpinner(status, time = 2000) {
   const spinner = document.getElementById("spinner_parent");
   if (status) {
     spinner.classList.remove("hidden");
   } else {
-    spinner.classList.add("hidden");
+    setTimeout(() => {
+      spinner.classList.add("hidden");
+    }, time);
   }
 }
 // Handle search
 const search_btn = document.getElementById("search_btn");
 search_btn.addEventListener("click", async () => {
+  let input_value = search_input.value.toLowerCase();
+
   // Loading spinner show
   loadingSpinner(true);
   isSearch = true;
-  const sortedPosts = await getAllPosts();
-
-  displayPost(sortedPosts);
+  // invalid search alert
+  if (categoryStore.includes(input_value)) {
+    setTimeout(async () => {
+      const sortedPosts = await getAllPosts();
+      displayPost(sortedPosts);
+    }, 2000);
+  } else {
+    loadingSpinner(false, 2000);
+    alert("Input category donsen't exists. ");
+  }
 });
 
 //* NOTE Display posts
@@ -56,6 +66,7 @@ const post_container = document.getElementById("post_container");
 function displayPost(posts) {
   post_container.innerText = "";
   posts.forEach((post) => {
+    categoryStore.push(post.category.toLowerCase());
     const div = document.createElement("div");
     div.innerHTML = `
            <!-- <<<<<<<<<<<< post start >>>>>>>>>>>>> -->
@@ -123,9 +134,7 @@ function displayPost(posts) {
           <!-- <<<<<<<<<<<< post ends >>>>>>>>>>>>> -->
         `;
     // Loading spinner off after 2 seconds letter
-    setTimeout(() => {
-      loadingSpinner(false);
-    }, 2000);
+    loadingSpinner(false);
     post_container.appendChild(div);
   });
 }
