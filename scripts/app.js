@@ -3,11 +3,16 @@ let isSearch = false;
 // get all posts
 const getAllPosts = async (clickedId) => {
   const searchPost = [];
-
+  if (searchPost.length === 0) {
+    setTimeout(() => {
+      loadingSpinner(false);
+    }, 2000);
+  }
   const res = await fetch(
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const { posts } = await res.json();
+
   const search_input = document.getElementById("search_input");
   posts.forEach((post) => {
     // handle search
