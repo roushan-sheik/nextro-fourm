@@ -86,7 +86,9 @@ function displayPost(posts) {
                 </p>
               </div>
               <h3 class="font-bold mb-[15px]  text-[18px]">${post.title}</h3>
-              <p>${post.description}</p>
+              <p>${
+                post.description
+              } ' nextro app is available for every ware'</p>
               <!-- dotted line  -->
               <div class="border_bottom my-[18px]"></div>
               <!-- =====> activity container <===== -->
